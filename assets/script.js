@@ -5,20 +5,19 @@ const profileModal = document.querySelector('#modal-profile');
 const openProfileModal = document.querySelector('.btn-profile-box');
 const closeProfileModal = document.querySelector('.btn-close-profile');
 
-
 // ---------------------------------------------------------------
 
 let coll = document.getElementById('snapshot-collection-1');
 let collectionPage = document.getElementById('collection-page');
 let totalImg = 25;
-
+// Article iteration
 for (let index = 2; index < totalImg; index++) {
    const articleLoop = coll.cloneNode(true);
    
    collectionPage.appendChild(articleLoop);
    document.getElementById('img-src').src = 'assets/images/pic-' + index + '.jpeg' ;  
 }
-
+// Dialog iteration
 for (let modalNumber = 2; modalNumber < totalImg; modalNumber++) {
    
    const dialogImg = document.getElementById('img-modal-1');
@@ -41,10 +40,14 @@ for (let modalNumber = 2; modalNumber < totalImg; modalNumber++) {
    });
 
    closeImageModal.addEventListener('click', function() {
+      imageModal.classList.add('hide-collection-modal');
+      imageModal.addEventListener('webkitAnimationEnd', function(){
+      imageModal.classList.remove('hide-collection-modal');
       imageModal.close();
+      imageModal.removeEventListener('webkitAnimationEnd',  arguments.callee, false);
+    }, false);
    });   
 }
-
 
 navButton.addEventListener('click', function() {
    navButton.classList.toggle('active');
@@ -55,14 +58,14 @@ openProfileModal.addEventListener('click', function() {
    profileModal.showModal();
 });
 
-closeProfileModal.onclick = function() {
-    profileModal.classList.add('hide');
-    profileModal.addEventListener('webkitAnimationEnd', function(){
-        profileModal.classList.remove('hide');
-        profileModal.close();
-        profileModal.removeEventListener('webkitAnimationEnd',  arguments.callee, false);
+closeProfileModal.addEventListener('click',function() {
+      profileModal.classList.add('hide-profile-modal');
+      profileModal.addEventListener('webkitAnimationEnd', function(){
+      profileModal.classList.remove('hide-profile-modal');
+      profileModal.close();
+      profileModal.removeEventListener('webkitAnimationEnd',  arguments.callee, false);
     }, false);
-};
+});
 
 document.onkeydown = function(e) {
    if(event.keyCode == 123) {

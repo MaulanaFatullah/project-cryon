@@ -42,27 +42,38 @@ h2 {
     font-size: clamp(1rem, 1.5rem, 2rem);
 }
 dialog[open] {
-    -webkit-animation: show 1s ease normal;
-    animation: show 1s ease normal;
+    -webkit-animation: show-modal var(--transition-1s) ease normal;
+    animation: show-modal var(--transition-1s) ease normal;
 }
-dialog.hide {
-    -webkit-animation: hide 1s ease normal;
-    animation: hide 1s ease normal;
+dialog.hide-collection-modal {
+    -webkit-animation: hide-collection-modal var(--transition-04s) ease normal;
+    animation: hide-collection-modal var(--transition-04s) ease normal;
 }
-@keyframes show{
+dialog.hide-profile-modal {
+    -webkit-animation: hide-profile-modal var(--transition-1s) ease normal;
+    animation: hide-profile-modal var(--transition-1s) ease normal;
+}
+@keyframes show-modal {
     from {
         opacity: 0;
-        transform: translateX(100px);
+        transform: scale(0.5,0.5);
     }
     to {
         opacity: 1;
-        transform: translateX(0px);
+        transform: scale(1,1);
     }
 }
-@keyframes hide{
+@keyframes hide-collection-modal{
     to {
         opacity: 0;
-        transform: translateX(100px);
+        transform: scale(0.5,0.5);
+
+    }
+}
+@keyframes hide-profile-modal{
+    to {
+        opacity: 0;
+        transform: translateX(500px);
 
     }
 }
@@ -558,7 +569,7 @@ input#email:focus {
 .slide-wrapper {
     width: calc(var(--slide-width) * 5);
 
-    animation: slide 10s ease infinite;
+    animation: slide 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .slide:nth-child(1) {
@@ -686,8 +697,6 @@ footer {
     }
     .slide-wrapper {
         width: calc(var(--slide-width-13) * 5);
-    
-        animation: slide 10s ease infinite;
     }
     .subscription-form {
         width: 60vw ;
@@ -754,8 +763,6 @@ footer {
     }
     .slide-wrapper {
         width: calc(100vw * 5);
-    
-        animation: slide 10s ease infinite;
     }
     .subscription-form {
         width: 90vw ;
@@ -805,7 +812,7 @@ footer {
         padding: 0 10px;
     }
     .soc-med {
-        padding-top: 10em;
+        padding-top: 2em;
         width: 90%;
     }
 }
