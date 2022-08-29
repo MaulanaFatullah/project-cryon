@@ -5,8 +5,6 @@ const profileModal = document.querySelector('#modal-profile');
 const openProfileModal = document.querySelector('.btn-profile-box');
 const closeProfileModal = document.querySelector('.btn-close-profile');
 
-const openImage = document.querySelector('.btn-img-modal');
-const closeImageModal = document.querySelector('.btn-close-img');
 
 // ---------------------------------------------------------------
 
@@ -32,6 +30,9 @@ for (let modalNumber = 2; modalNumber < totalImg; modalNumber++) {
    
    document.getElementById('img-modal-1').id = 'img-modal-' + modalNumber;
    document.getElementById('snapshot-collection-1').id = 'snapshot-collection-' + modalNumber;
+   document.getElementById('btn-close-img-1').id = 'btn-close-img-' + modalNumber;
+
+   var closeImageModal = document.getElementById('btn-close-img-' + (modalNumber - 1));
    var snapModal = document.getElementById('snapshot-collection-' + modalNumber);
 
    let imageModal = document.querySelector('#img-modal-' + (modalNumber - 1));
