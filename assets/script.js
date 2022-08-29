@@ -28,10 +28,10 @@ for (let modalNumber = 2; modalNumber <= totalImg; modalNumber++) {
    let imageModal = document.querySelector('#img-modal-' + modalNumber);
    
    
-      imageModal.showModal();
-   
-   
-      imageModal.close();
+   imageModal.showModal();
+
+
+   imageModal.close();
    
 }
 
