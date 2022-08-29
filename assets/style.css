@@ -43,11 +43,13 @@ h2 {
 }
 dialog[open] {
     -webkit-animation: show 1s ease normal;
+    animation: show 1s ease normal;
 }
 dialog.hide {
     -webkit-animation: hide 1s ease normal;
+    animation: hide 1s ease normal;
 }
-@-webkit-keyframes show{
+@keyframes show{
     from {
         opacity: 0;
         transform: translateX(100px);
@@ -57,7 +59,7 @@ dialog.hide {
         transform: translateX(0px);
     }
 }
-@-webkit-keyframes hide{
+@keyframes hide{
     to {
         opacity: 0;
         transform: translateX(100px);
@@ -207,7 +209,7 @@ ul .nav-list {
     transition: .5s;
     background-color: white;
 }
-@-webkit-keyframes btn-profile{
+@keyframes btn-profile{
     from {
         transform: translateX(100px);
     }
@@ -217,6 +219,7 @@ ul .nav-list {
 }
 .btn-profile-box {
     -webkit-animation: btn-profile var(--transition-1s) ease normal;
+    animation: btn-profile var(--transition-1s) ease normal;
     transition: var(--transition-04s);
     z-index: 9;
     position: fixed;
@@ -310,7 +313,7 @@ ul .nav-list {
     justify-content: space-between;
 }
 
-@-webkit-keyframes introduction-text{
+@keyframes introduction-text{
     from {
         transform: translateX(-15em);
         opacity: 0;    
@@ -324,6 +327,7 @@ ul .nav-list {
     position: relative;
     top: var(--intro-text-top);
     -webkit-animation: introduction-text var(--transition-1s) ease-in-out normal;
+    animation: introduction-text var(--transition-1s) ease-in-out normal;
     transform: translateX(0);
     
     padding: 0 20px;
@@ -422,6 +426,7 @@ div.collection-page:hover .img-collection:not(:hover){
 }
 .img-modal {
     border-color: var(--accent-color);
+    border-width: 1px;
     border-radius: 10px;
     max-width: 50vh;
 }
@@ -847,6 +852,7 @@ footer {
     .introduction-img {
         display: flex;
         -webkit-animation: intro-img-transition var(--transition-1s) ease-in-out normal;
+        animation: intro-img-transition var(--transition-1s) ease-in-out normal;
         transform: translateX(0);
         border-top-left-radius: 50px;
         position: relative;
@@ -879,6 +885,7 @@ footer {
         position: relative;
         top: var(--intro-text-top);
         -webkit-animation: introduction-text var(--transition-1s) ease-in-out normal;
+        animation: introduction-text var(--transition-1s) ease-in-out normal;
         transform: translateX(0);
         padding: 0 40px;
     }
@@ -935,6 +942,7 @@ footer {
         position: relative;
         top: var(--intro-text-top);
         -webkit-animation: introduction-text var(--transition-1s) ease-in-out normal;
+        animation: introduction-text var(--transition-1s) ease-in-out normal;
         transform: translateX(0);
     }
     
@@ -952,6 +960,7 @@ footer {
     }
     .introduction-text {
         -webkit-animation: introduction-text var(--transition-1s) ease-in-out normal;
+        animation: introduction-text var(--transition-1s) ease-in-out normal;
         transform: translateX(0);
     }
     .btn-profile-box {

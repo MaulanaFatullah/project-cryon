@@ -10,11 +10,18 @@ const closeImageModal = document.querySelector('.btn-close-img');
 
 // ---------------------------------------------------------------
 
-let coll = document.getElementById('snapshot-collection');
+let coll = document.getElementById('snapshot-collection-1');
 let collectionPage = document.getElementById('collection-page');
-let totalImg = 22;
+let totalImg = 25;
 
-for (let modalNumber = 2; modalNumber <= totalImg; modalNumber++) {
+for (let index = 2; index < totalImg; index++) {
+   const articleLoop = coll.cloneNode(true);
+   
+   collectionPage.appendChild(articleLoop);
+   document.getElementById('img-src').src = 'assets/images/pic-' + index + '.jpeg' ;  
+}
+
+for (let modalNumber = 2; modalNumber < totalImg; modalNumber++) {
    
    const dialogImg = document.getElementById('img-modal-1');
    const dialogImgSrc = dialogImg.cloneNode(true);
@@ -24,23 +31,17 @@ for (let modalNumber = 2; modalNumber <= totalImg; modalNumber++) {
    document.getElementById('img-dialog-src-1').src = 'assets/images/pic-' + modalNumber + '.jpeg' ;
    
    document.getElementById('img-modal-1').id = 'img-modal-' + modalNumber;
+   document.getElementById('snapshot-collection-1').id = 'snapshot-collection-' + modalNumber;
+   var snapModal = document.getElementById('snapshot-collection-' + modalNumber);
 
-   let imageModal = document.querySelector('#img-modal-' + modalNumber);
-   
-   
-   imageModal.showModal();
+   let imageModal = document.querySelector('#img-modal-' + (modalNumber - 1));
+   snapModal.addEventListener('click', function() {
+      imageModal.showModal();
+   });
 
-
-   imageModal.close();
-   
-}
-
-for (let index = 2; index <= totalImg; index++) {
-   const articleLoop = coll.cloneNode(true);
-   
-   collectionPage.appendChild(articleLoop);
-   document.getElementById('img-src').src = 'assets/images/pic-' + index + '.jpeg' ;  
-   
+   closeImageModal.addEventListener('click', function() {
+      imageModal.close();
+   });   
 }
 
 
@@ -52,7 +53,8 @@ navButton.addEventListener('click', function() {
 openProfileModal.addEventListener('click', function() {
    profileModal.showModal();
 });
-document.querySelector('.btn-close-profile').onclick = function() {
+
+closeProfileModal.onclick = function() {
     profileModal.classList.add('hide');
     profileModal.addEventListener('webkitAnimationEnd', function(){
         profileModal.classList.remove('hide');
