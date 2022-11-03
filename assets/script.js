@@ -67,7 +67,7 @@ closeProfileModal.addEventListener('click', function () {
    }, false);
 });
 
-// Contect menu restriction
+// Context menu restriction
 document.onkeydown = function (e) {
    if (event.keyCode == 123) {
       return false;
